@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Section from './Section';
 import FedbackOptions from './Options';
 import Statisctics from './Statistics';
+import { FeedbackContainer } from './App.styled';
 // import Notification from './Notification';
 export class App extends Component {
   state = {
@@ -18,11 +19,10 @@ export class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
-    const countTotalFeedback =
-      this.state.good + this.state.bad + this.state.neutral;
+    const countTotalFeedback = good + bad + neutral;
 
     const countPositiveFeedbackPercentage = Math.round(
-      0 + (this.state.good / countTotalFeedback) * 100
+      0 + (good / countTotalFeedback) * 100
     );
     return (
       <div
@@ -35,7 +35,7 @@ export class App extends Component {
           color: '#010101',
         }}
       >
-        <div>
+        <FeedbackContainer>
           <Section title="Please leave feedback">
             <FedbackOptions
               options={Object.keys(this.state)}
@@ -52,7 +52,7 @@ export class App extends Component {
               persentage={countPositiveFeedbackPercentage}
             />
           </Section>
-        </div>
+        </FeedbackContainer>
       </div>
     );
   }
