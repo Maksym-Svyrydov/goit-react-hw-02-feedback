@@ -1,4 +1,5 @@
 import { Buttons, Button } from './Options.styled';
+import propTypes from 'prop-types';
 
 export const FedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
@@ -15,5 +16,9 @@ export const FedbackOptions = ({ options, onLeaveFeedback }) => {
       ))}
     </Buttons>
   );
+};
+FedbackOptions.propTypes = {
+  options: propTypes.arrayOf(propTypes.string).isRequired,
+  onLeaveFeedback: propTypes.func.isRequired,
 };
 export default FedbackOptions;

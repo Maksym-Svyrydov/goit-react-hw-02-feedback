@@ -1,5 +1,6 @@
 import { List, Item } from './Statisctics.styled';
 import { Notification } from '../Notification/Notificaton';
+import propTypes from 'prop-types';
 
 const Statisctics = ({ good, neutral, bad, total, persentage }) => {
   if (total) {
@@ -14,5 +15,12 @@ const Statisctics = ({ good, neutral, bad, total, persentage }) => {
     );
   }
   return <Notification message="There is no feedback" />;
+};
+Statisctics.propTypes = {
+  good: propTypes.number.isRequired,
+  neutral: propTypes.number.isRequired,
+  bad: propTypes.number.isRequired,
+  total: propTypes.number.isRequired,
+  persentage: propTypes.number.isRequired,
 };
 export default Statisctics;
